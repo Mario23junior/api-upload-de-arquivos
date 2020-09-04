@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.uploadArquivos.exception.StorageException;
+
 @RestController
 public class UploadController {
   
@@ -22,9 +24,9 @@ public class UploadController {
 		 return "redirect:/success.html";
 	 }
 	 
-	 @ExceptionHandler(StoregeException.class)
+	 @ExceptionHandler(StorageException.class)
 	 public String handleStringFileNotFoundString(StoregeService e) {
-		 return "redirect:/failed.html"
+		 return "redirect:/failed.html";
 	 }
 	 
 }
