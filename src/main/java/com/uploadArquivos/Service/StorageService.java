@@ -13,7 +13,7 @@ import com.uploadArquivos.exception.StorageException;
 @Service
 public class StorageService {
     
-	@Value("${upload.pth}")
+	@Value("${upload.path}")
 	private String path;
 	
 	public void uploadFile(MultipartFile file ) {
