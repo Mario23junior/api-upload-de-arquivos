@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.uploadArquivos.Service.StorageService;
 import com.uploadArquivos.exception.StorageException;
 
 @RestController
 public class UploadController {
   
 	 @Autowired
-	 private StoregeService storegeService;
+	 private StorageService storegeService;
 	 
 	 @RequestMapping(value = "/Upload", method = RequestMethod.POST,consumes = {"multipart/form-data"})
 	 public String upload(@RequestParam MultipartFile file) {
@@ -25,7 +26,7 @@ public class UploadController {
 	 }
 	 
 	 @ExceptionHandler(StorageException.class)
-	 public String handleStringFileNotFoundString(StoregeService e) {
+	 public String handleStringFileNotFoundString(StorageService e) {
 		 return "redirect:/failed.html";
 	 }
 	 
