@@ -32,7 +32,7 @@ public class StorageService {
 			
 		} catch (Exception e) {
 			
-			var msg = String.format("Falha ao armazenar o arquivo %f", file.getName());
+			var msg = String.format("Falha ao armazenar o arquivo $%.1f%n", file.getName());
 			
 			throw new StorageException(msg, e);
 		}

@@ -1,17 +1,17 @@
 package com.uploadArquivos.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.uploadArquivos.Service.StorageService;
 import com.uploadArquivos.exception.StorageException;
 
-@RestController
+@Controller
 public class UploadController {
   
 	 @Autowired
@@ -22,7 +22,7 @@ public class UploadController {
 		 
 		 storegeService.uploadFile(file);
 		 
-		 return "redirect:/success.html";
+		 return ("redirect:/success.html");
 	 }
 	 
 	 @ExceptionHandler(StorageException.class)
